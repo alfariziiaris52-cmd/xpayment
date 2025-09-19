@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Payment Gateway</title>
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway - Dana, Gopay, OVO, QRIS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -26,143 +23,150 @@
         }
 
         .container {
+            max-width: 900px;
             width: 100%;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
             animation: fadeIn 0.8s ease;
         }
 
-        .header {
-            background: linear-gradient(to right, #2575fc, #6a11cb);
-            color: white;
-            padding: 25px;
-            text-align: center;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .header h1 {
-            font-size: 28px;
+        header {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
             margin-bottom: 10px;
         }
 
-        .header p {
-            font-size: 16px;
+        header p {
             opacity: 0.9;
         }
 
-        .payment-container {
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             padding: 30px;
         }
 
-        .payment-option {
+        .payment-card {
             background: white;
             border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            display: flex;
-            align-items: center;
         }
 
-        .payment-option:hover {
+        .payment-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .payment-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 12px;
-            margin-right: 20px;
-            font-size: 28px;
+        .card-header {
             color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
         }
 
-        .dana {
-            background: linear-gradient(to right, #0084ff, #00a2ff);
+        .dana .card-header {
+            background: linear-gradient(to right, #0095ff, #00a2ff);
         }
 
-        .gopay {
+        .gopay .card-header {
             background: linear-gradient(to right, #00a64f, #00c853);
         }
 
-        .ovo {
+        .ovo .card-header {
             background: linear-gradient(to right, #4c2c92, #673ab7);
         }
 
-        .qris {
+        .qris .card-header {
             background: linear-gradient(to right, #ff6600, #ff9900);
         }
 
-        .payment-details {
-            flex: 1;
+        .card-body {
+            padding: 20px;
+            text-align: center;
         }
 
-        .payment-details h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
+        .card-body i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .dana .card-body i {
+            color: #0095ff;
+        }
+
+        .gopay .card-body i {
+            color: #00a64f;
+        }
+
+        .ovo .card-body i {
+            color: #4c2c92;
+        }
+
+        .qris .card-body i {
+            color: #ff6600;
+        }
+
+        .card-body p {
+            font-size: 1.1rem;
+            margin: 10px 0;
             color: #333;
-        }
-
-        .payment-details p {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 5px;
+            word-break: break-all;
         }
 
         .copy-btn {
-            background: #f5f5f5;
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            color: white;
             border: none;
             padding: 8px 15px;
-            border-radius: 8px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: background 0.3s ease;
-            font-size: 14px;
-            color: #444;
+            margin-top: 10px;
+            transition: all 0.3s ease;
         }
 
         .copy-btn:hover {
-            background: #e0e0e0;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            transform: scale(1.05);
         }
 
-        .qr-container {
-            text-align: center;
-            margin-top: 10px;
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .qr-code {
-            max-width: 250px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .qris-img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 10px;
             margin: 15px auto;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .footer {
+        .qris-img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
             text-align: center;
             padding: 20px;
+            background: #f5f5f5;
             color: #666;
-            font-size: 14px;
-            border-top: 1px solid #eee;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            font-size: 0.9rem;
         }
 
         .notification {
@@ -172,173 +176,118 @@
             padding: 15px 25px;
             background: #4caf50;
             color: white;
-            border-radius: 8px;
+            border-radius: 5px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 0.5s ease;
-            display: none;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
             z-index: 1000;
         }
 
+        .notification.show {
+            transform: translateX(0);
+        }
+
         @media (max-width: 768px) {
-            .payment-option {
-                flex-direction: column;
-                text-align: center;
+            .payment-methods {
+                grid-template-columns: 1fr;
             }
-
-            .payment-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-
-            .container {
-                border-radius: 15px;
+            
+            header h1 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <h1>Payment Gateway</h1>
             <p>Pilih metode pembayaran yang Anda inginkan</p>
-        </div>
+        </header>
 
-        <div class="payment-container">
-            <div class="payment-option" onclick="toggleQR('dana')">
-                <div class="payment-icon dana">
+        <div class="payment-methods">
+            <div class="payment-card dana">
+                <div class="card-header">
+                    <h2>DANA</h2>
+                </div>
+                <div class="card-body">
                     <i class="fas fa-wallet"></i>
-                </div>
-                <div class="payment-details">
-                    <h3>DANA</h3>
                     <p>085714353387</p>
-                    <button
-                        class="copy-btn"
-                        onclick="event.stopPropagation(); copyToClipboard('085714353387', 'Nomor DANA')"
-                    >
-                        <i class="fas fa-copy"></i> Salin Nomor
-                    </button>
+                    <button class="copy-btn" data-number="085714353387">Salin Nomor</button>
                 </div>
             </div>
 
-            <div class="payment-option" onclick="toggleQR('gopay')">
-                <div class="payment-icon gopay">
+            <div class="payment-card gopay">
+                <div class="card-header">
+                    <h2>GOPAY</h2>
+                </div>
+                <div class="card-body">
                     <i class="fab fa-google-wallet"></i>
-                </div>
-                <div class="payment-details">
-                    <h3>GOPAY</h3>
-                    <p>Tidak tersedia</p>
+                    <p>82962829928</p>
+                    <button class="copy-btn" data-number="82962829928">Salin Nomor</button>
                 </div>
             </div>
 
-            <div class="payment-option" onclick="toggleQR('ovo')">
-                <div class="payment-icon ovo">
+            <div class="payment-card ovo">
+                <div class="card-header">
+                    <h2>OVO</h2>
+                </div>
+                <div class="card-body">
                     <i class="fas fa-money-bill-wave"></i>
-                </div>
-                <div class="payment-details">
-                    <h3>OVO</h3>
-                    <p>Tidak tersedia</p>
+                    <p>9289290010</p>
+                    <button class="copy-btn" data-number="9289290010">Salin Nomor</button>
                 </div>
             </div>
 
-            <div class="payment-option" onclick="toggleQR('qris')">
-                <div class="payment-icon qris">
+            <div class="payment-card qris">
+                <div class="card-header">
+                    <h2>QRIS</h2>
+                </div>
+                <div class="card-body">
                     <i class="fas fa-qrcode"></i>
+                    <img src="https://files.catbox.moe/7yokm2.jpg" alt="QR Code" class="qris-img">
+                    <p>Scan QR Code untuk pembayaran</p>
                 </div>
-                <div class="payment-details">
-                    <h3>QRIS</h3>
-                    <p>Scan kode QR untuk pembayaran</p>
-                </div>
-            </div>
-
-            <!-- QR Code Containers -->
-            <div id="dana-qr" class="qr-container">
-                <img
-                    src="https://files.catbox.moe/7yokm2.jpg"
-                    alt="DANA QR Code"
-                    class="qr-code"
-                />
-                <p>Scan QR code di atas untuk pembayaran via DANA</p>
-            </div>
-
-            <div id="gopay-qr" class="qr-container">
-                <p>Metode pembayaran GOPAY tidak tersedia saat ini.</p>
-            </div>
-
-            <div id="ovo-qr" class="qr-container">
-                <p>Metode pembayaran OVO tidak tersedia saat ini.</p>
-            </div>
-
-            <div id="qris-qr" class="qr-container">
-                <img
-                    src="https://files.catbox.moe/7yokm2.jpg"
-                    alt="QRIS Code"
-                    class="qr-code"
-                />
-                <p>Scan QR code di atas untuk pembayaran via QRIS</p>
             </div>
         </div>
 
-        <div class="footer">
-            <p>© 2023 Payment Gateway. Semua hak dilindungi.</p>
-        </div>
+        <footer>
+            <p>&copy; 2023 Payment Gateway. Semua hak dilindungi.</p>
+        </footer>
     </div>
 
-    <!-- Notification popup -->
     <div class="notification" id="notification">
-        <i class="fas fa-check-circle"></i> <span id="notification-text"></span>
+        Nomor berhasil disalin!
     </div>
 
     <script>
-        // Fungsi untuk menampilkan QR code sesuai pilihan
-        function toggleQR(type) {
-            // Sembunyikan semua QR container
-            document.querySelectorAll('.qr-container').forEach((qr) => {
-                qr.style.display = 'none';
-            });
-
-            // Tampilkan QR container yang dipilih
-            const selectedQR = document.getElementById(`${type}-qr`);
-            if (selectedQR) {
-                selectedQR.style.display = 'block';
-            }
-        }
-
-        // Fungsi untuk menyalin teks ke clipboard
-        function copyToClipboard(text, type) {
-            if (text === 'Tidak tersedia') {
-                showNotification('Metode pembayaran tidak tersedia');
-                return;
-            }
-
-            navigator.clipboard
-                .writeText(text)
-                .then(() => {
-                    showNotification(`${type} berhasil disalin: ${text}`);
-                })
-                .catch((err) => {
-                    console.error('Gagal menyalin teks: ', err);
-                    showNotification('Gagal menyalin teks');
-                });
-        }
-
-        // Fungsi menampilkan notifikasi sementara
-        function showNotification(message) {
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButtons = document.querySelectorAll('.copy-btn');
             const notification = document.getElementById('notification');
-            const notificationText = document.getElementById('notification-text');
-
-            notificationText.textContent = message;
-            notification.style.display = 'block';
-
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 3000);
-        }
-
-        // Saat halaman dimuat, sembunyikan semua QR container
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.qr-container').forEach((qr) => {
-                qr.style.display = 'none';
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const number = this.getAttribute('data-number');
+                    copyToClipboard(number);
+                    showNotification();
+                });
             });
+            
+            function copyToClipboard(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+            
+            function showNotification() {
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 2000);
+            }
         });
     </script>
 </body>
